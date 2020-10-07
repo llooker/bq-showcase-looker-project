@@ -4,15 +4,29 @@ project_name: "bq_demo"
 application: bq_demo {
   label: "BigQuery Demo"
   url: "http://localhost:8080/bundle.js"
+  # url: "https://localhost:8080/bundle.js"
+  # url: "https://develop.open.extension.looker.com:8080/bundle.js"
   entitlements: {
-    local_storage: yes
-    navigation: yes
-    new_window: yes
+    # use_form_submit: yes
+    # use_embeds: yes
+    allow_forms: yes
     allow_same_origin: yes
     core_api_methods: [
-      "run_inline_query",
-      "lookml_model_explore",
-      "create_query"
+      "create_query",
+      "query_for_slug",
+      "all_dashboards",
+      "all_looks",
+      "search_content_favorites",
+      "search_dashboards",
+      "search_looks",
+      "dashboard",
+      "look",
+      "me",
+      "session",
+      "all_connections",
+      "all_lookml_models",
+      "sql_query",
+      "connection_schemas"
     ]
   }
 }
