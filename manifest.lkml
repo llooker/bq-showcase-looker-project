@@ -11,8 +11,7 @@ application: bq_demo {
     # use_embeds: yes
     allow_forms: yes
     allow_same_origin: yes
-    core_api_methods: [
-      "create_query",
+    core_api_methods: ["create_query",
       "query_for_slug",
       "all_dashboards",
       "all_looks",
@@ -26,7 +25,8 @@ application: bq_demo {
       "all_connections",
       "all_lookml_models",
       "sql_query",
-      "connection_schemas"
-    ]
+      "connection_schemas",
+      "create_sql_query"
+      ]
   }
 }
