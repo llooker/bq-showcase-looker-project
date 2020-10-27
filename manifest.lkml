@@ -27,7 +27,8 @@ application: bq_demo {
       "sql_query",
       "connection_schemas",
       "create_sql_query",
-      "run_sql_query"
+      "run_sql_query",
+      "connection_cost_estimate"
     ]
   }
 }
