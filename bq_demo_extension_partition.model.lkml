@@ -1,4 +1,4 @@
-connection: "looker-private-demo"
+connection: "lookerdata"
 
 include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/view.lkml"                   # include all views in this project
@@ -18,3 +18,8 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
+
+explore: wikipedia_v3_partition {
+  label: "Wikipedia Public Dataset"
+  description: "This dataset goes back to 2017 & is partitioned"
+}
