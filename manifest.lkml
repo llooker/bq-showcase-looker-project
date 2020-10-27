@@ -3,8 +3,8 @@ project_name: "bq_demo"
 
 application: bq_demo {
   label: "BigQuery Demo"
-  # url: "http://localhost:8080/bundle.js"
-  url: "https://localhost:8080/bundle.js"
+  url: "http://localhost:8080/bundle.js"
+  # url: "https://localhost:8080/bundle.js"
   # url: "https://develop.open.extension.looker.com:8080/bundle.js"
   entitlements: {
     # use_form_submit: yes
@@ -26,7 +26,8 @@ application: bq_demo {
       "all_lookml_models",
       "sql_query",
       "connection_schemas",
-      "create_sql_query"
-      ]
+      "create_sql_query",
+      "run_sql_query"
+    ]
   }
 }
