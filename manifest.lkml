@@ -4,7 +4,7 @@ project_name: "bq_demo"
 application: bq_demo {
   label: "BigQuery Demo"
   file: "bundle.js"
-  # url: "https://localhost:8080/bundle.js"
+  # url: "http://localhost:8080/bundle.js"
   # url: "https://develop.open.extension.looker.com:8080/bundle.js"
   entitlements: {
     # use_form_submit: yes
