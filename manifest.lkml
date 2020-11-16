@@ -29,7 +29,7 @@ application: bq_demo {
       "create_sql_query",
       "run_sql_query",
       "connection_cost_estimate",
-      "all_boards"
+      "all_boards",
     ]
   }
 }
