@@ -35,6 +35,7 @@ application: bq_demo {
       "query",
       "run_look"
     ]
+    new_window: yes
     new_window_external_urls: [
       "https://cloud.google.com"
     ]
