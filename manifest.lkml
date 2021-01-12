@@ -37,7 +37,8 @@ application: bq_demo {
     ]
     new_window: yes
     new_window_external_urls: [
-      "https://cloud.google.com"
+      "https://cloud.google.com",
+      "https://console.google.com"
     ]
   }
 }
