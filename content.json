@@ -1,0 +1,206 @@
+[
+  {
+    "description": "Jane is a data analyst at a growing SaaS company, Phianese.ai. Her job is to work closely with account managers to understand how to address client needs and product pain points. Phinaese uses BigQuery as their Data Warehouse. With BigQuery, all provisioning happens behind the scenes, so Jane can focus on data and analyses rather than worrying about managing infrastructure.",
+    "id": "gettingstarted",
+    "item_order": [
+      "introduction",
+      "loading",
+      "writing",
+      "access"
+    ],
+    "title": "Getting Starteddddd",
+    "items": [
+      {
+        "id": "introduction",
+        "title": "Introduction to BigQuery",
+        "description": "When BigQuery launched it introduced several novel service designs: a fully managed operational model, rapidly scalable and multi-tenant compute, pay-per-job pricing, in-place data sharing and separation of storage and compute. Decoupling these elements allows for inexpensive and unlimited storage, completely un-siloed data, and compute that can scale to handle all query needs.",
+        "documentation_url": "https://cloud.google.com/blog/products/data-analytics/new-blog-series-bigquery-explained-overview",
+        "image_url": "https://storage.googleapis.com/bq_showcase_images/bq_overview_diagram.png"
+      },
+      {
+        "id": "loading",
+        "title": "Loading Data into BigQuery",
+        "description": "With BigQuery Jane can easily load data from Cloud Storage or a local file, leverage a tool like DataFlow to create streaming pipelines, or use different managed services to export data from an external source. Jane recently had a request to see how certain sales metrics are comparing against goals maintained in a spreadsheet. Using the BQ console she can easily add the sheet as an external data source that can be joined and queried against other tables.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/loading-data#loading_data_from_other_google_services",
+        "video_url": "https://youtu.be/P1psyvdwjXM"
+      },
+      {
+        "id": "writing",
+        "title": "Writing Queries",
+        "description": "With her data loaded into BigQuery, Jane can immediately use her existing SQL skills to build queries and understand trends. Jane writes highly performant queries using standard SQL right from the BigQuery console. Here, she writes a query to understand how much ARR (annual recurring revenue) the team has closed each month. She receives a response to her query almost immediately due to BigQuery’s powerful query processing engine.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/running-queries#queries",
+        "look_id": 277
+      },
+      {
+        "id": "access",
+        "title": "Access Control",
+        "description": "Some of the data Jane has added to her dataset is sensitive within her organization, so she wants to restrict access. But she doesn’t want to restrict access to all the data and needs to be able to flexibly assign access to data in a granular manner.  She can easily use predefined roles to ensure that only a few people on her team have access to this table.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/running-queries#queries",
+        "video_url": "https://youtu.be/H1oS9szSqgY"
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/gettingstarted_hero.png"
+  },
+  {
+    "id": "partitioning",
+    "title": "Partitioning",
+    "description": "Jane is consistently analyzing event data coming in from the Phinaese application to understand how customers are using it and where there is room for improvement. However, with so many events being streamed into BigQuery, the resulting table can easily exceed 3TB. With such a large table, querying all the data is slow and costly. However, Jane doesn’t want to query all the data, just part of the table, and she’s concerned that querying the full table will be expensive.  One solution she can use to speed up queries and reduce unnecessary query costs is partitioning.",
+    "item_order": [
+      "introduction",
+      "creating",
+      "querying",
+      "comparing"
+    ],
+    "items": [
+      {
+        "id": "introduction",
+        "title": "Introduction to Partitioning",
+        "description": "A partitioned table is a special table that is divided into segments, called partitions, that make it easier to manage and query your data. By dividing a large table into smaller partitions, you can limit queries to only part of the table -- improving query performance and efficiency. Limiting the number of bytes queried also limits the query’s cost.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/partitioned-tables",
+        "image_url": "https://rviews.rstudio.com/2018/02/02/cost-effective-bigquery-with-r/"
+      },
+      {
+        "id": "creating",
+        "title": "Creating a Partitioned Table",
+        "description": "You can partition BigQuery tables by ingestion time (time the data is added to the table), or by a column in the table (either date/datetime/timestamp or integer). When you create a new table in BigQuery you can specify how you want it to be partitioned. Subsequent data written to the partitioned table is automatically delivered to the appropriate partition based on the time-unit value. Here, we show how you can create the event table, using the event timestamp as the partition column.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/creating-column-partitions",
+        "video_url": "n/a"
+      },
+      {
+        "id": "querying",
+        "title": "Querying a Partitioned Table",
+        "description": "How does Jane determine what partition will be included when she executes her query? To limit the number of partitions scanned when querying partitioned tables, she can use a predicate filter (a WHERE clause) that contains the column used for partitioning. Filters on the partitioning column will be used to prune the partitions and reduce the query cost. For example, here we show how Jane might query her event table while limiting the query to the number of days she’s interested in. Although her table contains more than 1TB of data, the predicate filter ensures only a small amount is scanned.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/querying-partitioned-tables",
+        "look_id": 279
+      },
+      {
+        "id": "comparing",
+        "title": "Comparing Against No Partition Filter",
+        "description": "Using the BigQuery console, you can compare the query details  in this step to those of the prior step to understand the differences in query speed and the amount of data scanned for queries that leverage the partitioned column in a filter vs those that do not.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/querying-partitioned-tables",
+        "look_id": 279
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/gettingstarted_hero.png"
+  },
+  {
+    "id": "machinelearning",
+    "title": "Machine Learning",
+    "description": "A big part of Jane’s job is trying to predict when a customer might churn, so that she can preemptively notify the account manager and actions can be taken to try and salvage the account. BQML lets Jane create and execute machine learning models in BigQuery using standard SQL.",
+    "item_order": [
+      "creating",
+      "evaluating",
+      "predict"
+    ],
+    "items": [
+      {
+        "id": "creating",
+        "title": "Creating a Model",
+        "description": "Jane creates a logistic regression model using the CREATE MODEL statement, and trains the data using a subset of historical data that contains the features she wants to predict based on. Since the model is running right in BigQuery, Jane doesn’t need to move data or learn an additional programming language.",
+        "documentation_url": "https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create",
+        "video_url": "n/a"
+      },
+      {
+        "id": "evaluating",
+        "title": "Evaluating the Model",
+        "description": "Jane can use the ML.EVALUATE function to evaluate her logistic regression model. The output is a single row containing common metrics applicable to the type of model supplied.",
+        "documentation_url": "https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-evaluate",
+        "look_id": 291
+      },
+      {
+        "id": "predict",
+        "title": "Predict on Current Customers",
+        "description": "Now that Jane has created and evaluated her machine learning model. She can schedule a query that would run each week and predict customers that are most at risk of churning. Here, she uses the ML.PREDICT function to predict the risk score for each account and filters to the accounts with a score above .1.",
+        "documentation_url": "https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-predict",
+        "look_id": 292
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/machinelearning_hero.png"
+  },
+  {
+    "id": "geospatialdata",
+    "title": "Geospatial Data",
+    "description": "Oftentimes, account representatives need to make sure a new account is within their territory before they begin working with a lead. Each account manager has a specific area on a map that is their territory, and each account has a lat/long associated with it’s corporate address. Jane can use BigQuery’s GIS capabilities to figure out how to map accounts to territories.",
+    "item_order": [
+      "aggregating",
+      "checking"
+    ],
+    "items": [
+      {
+        "id": "aggregating",
+        "title": "Aggregating GIS Data",
+        "description": "With just lat/long data, the best Jane can do is aggregate up to a specific point on a map. Here we aggregate the Total ARR for each point.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/gis-data",
+        "look_id": 293
+      },
+      {
+        "id": "checking",
+        "title": "Checking Polygons for Points",
+        "description": "However, the regions table contains a polygon column, geo, that contains the coordinates of the geography of that territory . Now, Jane can simply use the ST.WITHIN column to see which accounts, or points, fall into each territory and sum up the total ARR for each.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/reference/standard-sql/geography_functions#st_within",
+        "look_id": 0
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/geospatial_hero.png"
+  },
+  {
+    "id": "publicdatasets",
+    "title": "Public Datasets",
+    "description": "One thing Jane has been asked recently is how COVID-19 has been impacting customer churn rates. Instead of worrying about finding a reliable COVID dataset and setting up pipelines to ingest the data into their BigQuery database, Jane can easily leverage the NYT COVID-19 dataset in Google Cloud Public Dataset Program. The public datasets are datasets that BigQuery hosts for you to access and integrate, all storage and the first 1TB of querying is free.",
+    "item_order": [
+      "querying",
+      "joining"
+    ],
+    "items": [
+      {
+        "id": "querying",
+        "title": "Querying Public Data",
+        "description": "Jane can view and query the public datasets straight from the BQ console simply by querying the bigquery-public-datasets project. Here, she looks at the total confirmed cases in the US over time.",
+        "documentation_url": "https://cloud.google.com/blog/products/data-analytics/free-public-datasets-for-covid19",
+        "look_id": 294
+      },
+      {
+        "id": "joining",
+        "title": "Joining Public Data",
+        "description": "Next, Jane can join the COVID dataset back onto her own data based on the churn date. She can then see how trends in COVID at the country level correlate with customer retention.",
+        "documentation_url": "https://cloud.google.com/bigquery/public-data",
+        "query": "<query>"
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/publicdatasets_hero.png"
+  },
+  {
+    "id": "sharinginsights",
+    "title": "Sharing Insights",
+    "description": "When Jane has completed her analysis, she often wants to share her insights with colleagues as well as take it one step further by pushing these insights to other tools. ",
+    "item_order": [
+      "sharing",
+      "exporting",
+      "automating"
+    ],
+    "items": [
+      {
+        "id": "sharing",
+        "title": "Sharing Data",
+        "description": "From BigQuery, Jane can easily save and share her queries so that colleagues are able to access her analyses to conduct data analytics or to power data science. ",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/saving-sharing-queries",
+        "video_url": "video of sharing from console"
+      },
+      {
+        "id": "exporting",
+        "title": "Exporting Data",
+        "description": "Additionally, Jane can export data into other applications or download the results of queries to share with the group. Besides what’s available in the console, Jane can sit Looker on top of her BigQuery data warehouse to democratize access to robust analytics. This allows her to now automate reports to the Phinanese.ai team of alerts via Slack. ",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/saving-sharing-queries",
+        "video_url": "video of exporting from console"
+      },
+      {
+        "id": "automating",
+        "title": "Automating Workflows",
+        "description": "Data ActionsJane’s marketing team has been asking for weekly pulls of specific customer cohorts and she sees it as an opportunity to completely automate this process for sending new sign up emails out to customers who have yet to do X in the past 7 days",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/exporting-data",
+        "explore_id": "<embed explore>"
+      }
+    ],
+    "image_url": "https://storage.cloud.google.com/bq_showcase_images/gettingstarted_hero.png"
+  }
+]
