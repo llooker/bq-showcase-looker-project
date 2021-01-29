@@ -9,6 +9,7 @@ application: bq_demo {
   entitlements: {
     # use_form_submit: yes
     # use_embeds: yes
+    local_storage: yes
     allow_forms: yes
     allow_same_origin: yes
     core_api_methods: [
