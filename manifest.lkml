@@ -34,6 +34,7 @@ application: bq_demo {
       "board",
       "query",
       "run_look",
+
     ]
     new_window: yes
     new_window_external_urls: [
@@ -42,5 +43,6 @@ application: bq_demo {
       "https://pantheon.corp.google.com"
     ]
     oauth2_urls: ["https://github.com/login/oauth/authorize", "https://github.com/login/oauth/access_token"]
+    global_user_attributes: ["github_access_token"]
   }
 }
