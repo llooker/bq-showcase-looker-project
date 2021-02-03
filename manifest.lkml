@@ -3,12 +3,13 @@ project_name: "bq_demo"
 
 application: bq_demo {
   label: "BigQuery Demo"
-  file: "bundle.js"
   # url: "http://localhost:8080/bundle.js"
+  file: "bundle.js"
   # url: "https://develop.open.extension.looker.com:8080/bundle.js"
   entitlements: {
     # use_form_submit: yes
     # use_embeds: yes
+    local_storage: yes
     allow_forms: yes
     allow_same_origin: yes
     core_api_methods: [
@@ -33,8 +34,17 @@ application: bq_demo {
       "all_boards",
       "board",
       "query",
-      "run_look"
+      "run_look",
+
     ]
+    new_window: yes
+    new_window_external_urls: [
+      "https://cloud.google.com",
+      "https://console.google.com",
+      "https://pantheon.corp.google.com"
+    ]
+    oauth2_urls: ["https://github.com/login/oauth/authorize", "https://github.com/login/oauth/access_token"]
+    global_user_attributes: ["github_access_token"]
   }
 }
 
