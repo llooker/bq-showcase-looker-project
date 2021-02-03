@@ -47,3 +47,8 @@ application: bq_demo {
     global_user_attributes: ["github_access_token"]
   }
 }
+
+remote_dependency: saas {
+  url: "https://github.com/looker/saas_demo.git"
+  ref: "master"
+}
