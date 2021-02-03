@@ -57,7 +57,7 @@
         "title": "Introduction to Partitioning",
         "description": "A partitioned table is a special table that is divided into segments, called partitions, that make it easier to manage and query your data. By dividing a large table into smaller partitions, you can limit queries to only part of the table -- improving query performance and efficiency. Limiting the number of bytes queried also limits the query’s cost.",
         "documentation_url": "https://cloud.google.com/bigquery/docs/partitioned-tables",
-        "image_url": "https://rviews.rstudio.com/2018/02/02/cost-effective-bigquery-with-r/"
+        "image_url": "https://rviews.rstudio.com/post/2018-01-30-BigQuery_files/partition.png"
       },
       {
         "id": "creating",
