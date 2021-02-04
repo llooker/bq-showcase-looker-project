@@ -202,5 +202,35 @@
       }
     ],
     "image_url": "https://storage.cloud.google.com/bq_showcase_images/gettingstarted_hero.png"
+  },
+   {
+    "id": "informationschema",
+    "title": "Information Schema",
+    "description": "Sam is a database administrator and is responsible for Phinaese’s BigQuery instance. Monitoring every department and analyst’s usage and resource needs can be a daunting task but with BigQuery’s Information Schema Sam can easily access all of the information needed for his job. The Information Schema allows him to see who is using the most resources, what projects have slot reservations, computationally expensive jobs, and much more.",
+    "item_order": [
+      "slots",
+      "reservations",
+      "usage"
+    ],
+    "items": [
+      {
+        "id": "slots",
+        "title": "Analyzing Slot Usage",
+        "description": "A BigQuery slot is a virtual CPU used by BigQuery to execute SQL queries. Customers on the flat-rate pricing model explicitly choose how many slots to reserve. Your queries run within that capacity. Projects on the BigQuery on-demand pricing model are subject to per-project slot quota with transient burst capability. Sam has some complex BigQuery jobs that he needs to run but doesn’t want to interfere with everyone else’s day-to-day workloads. Using the Information Schema, Sam can see average slot usage by time of day and schedule his workloads to run during off-peak hours. He can also investigate spikes in slot usage to see what queries or workloads may have caused the spike.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/slots"
+        },
+      {
+        "id": "reservations",
+        "title": "Analyzing Reservations",
+        "description": "BigQuery Reservations enables you to switch between on-demand pricing and flat-rate pricing. With flat-rate pricing, you purchase dedicated query processing capacity. You can allocate this capacity across your organization, by reserving pools of capacity for different projects or different parts of your organization. With reservations, Sam can ensure mission critical teams have the dedicated horsepower they need. He can also analyze how many slots their organization is using relative to their reservation. Sam can see any spikes in utilization percentage and consider purchasing flex slots to help accommodate these spikes in the future.",
+        "documentation_url": "https://cloud.google.com/bigquery/docs/reservations-intro"
+        },
+      {
+        "id": "usage",
+        "title": "Analyzing BigQuery Usage",
+        "description": "Having reservations allows Sam to easily switch between on-demand pricing and flat-rate pricing. He assigns reservations to projects that need dedicated horsepower where other projects can use on-demand pricing. Sam monitors usage (both GBs processed and slots used) by project on a weekly basis, comparing it to last week. When Sam identifies projects with large increases in usage, he contacts the project owner to better understand the root cause. If projects will continue to increase usage, Sam can increase slot reservations or move on-demand projects to flat-rate pricing to ensure optimal performance."
+        }
+    ]
   }
+
 ]
