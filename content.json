@@ -217,13 +217,15 @@
         "id": "slots",
         "title": "Analyzing Slot Usage",
         "description": "A BigQuery slot is a virtual CPU used by BigQuery to execute SQL queries. Customers on the flat-rate pricing model explicitly choose how many slots to reserve. Your queries run within that capacity. Projects on the BigQuery on-demand pricing model are subject to per-project slot quota with transient burst capability. Sam has some complex BigQuery jobs that he needs to run but doesn’t want to interfere with everyone else’s day-to-day workloads. Using the Information Schema, Sam can see average slot usage by time of day and schedule his workloads to run during off-peak hours. He can also investigate spikes in slot usage to see what queries or workloads may have caused the spike.",
-        "documentation_url": "https://cloud.google.com/bigquery/docs/slots"
+        "documentation_url": "https://cloud.google.com/bigquery/docs/slots",
+        "look_id": 316
         },
       {
         "id": "reservations",
         "title": "Analyzing Reservations",
         "description": "BigQuery Reservations enables you to switch between on-demand pricing and flat-rate pricing. With flat-rate pricing, you purchase dedicated query processing capacity. You can allocate this capacity across your organization, by reserving pools of capacity for different projects or different parts of your organization. With reservations, Sam can ensure mission critical teams have the dedicated horsepower they need. He can also analyze how many slots their organization is using relative to their reservation. Sam can see any spikes in utilization percentage and consider purchasing flex slots to help accommodate these spikes in the future.",
-        "documentation_url": "https://cloud.google.com/bigquery/docs/reservations-intro"
+        "documentation_url": "https://cloud.google.com/bigquery/docs/reservations-intro",
+        "look_id": 317
         },
       {
         "id": "usage",
