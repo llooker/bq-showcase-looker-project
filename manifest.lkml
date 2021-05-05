@@ -3,15 +3,16 @@ project_name: "bq_demo"
 
 application: bq_demo {
   label: "BigQuery Demo"
-  # url: "http://localhost:8080/bundle.js"
-  file: "bundle.js"
+  url: "http://localhost:8080/bundle.js"
+  # file: "bundle.js"
   # url: "https://develop.open.extension.looker.com:8080/bundle.js"
   entitlements: {
     # use_form_submit: yes
     # use_embeds: yes
     local_storage: yes
     allow_forms: yes
-    allow_same_origin: yes
+    # allow_same_origin: yes
+    use_embeds:  yes
     core_api_methods: [
       "create_query",
       "query_for_slug",
